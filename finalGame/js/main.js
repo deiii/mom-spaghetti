@@ -26,7 +26,7 @@ GamePlay.prototype = {
 	preload: function() {
 		console.log('GamePlay: preload');
 		//preload SFX for collecting rune piece
-		game.load.audio('dingSFX', 'dingSFX.ogg');
+		game.load.audio('dingSFX', 'assets/audio/dingSFX.ogg');
 	},
 	create: function() {
 		console.log('GamePlay: create');
