@@ -5,6 +5,8 @@ var MainMenu = function(game) {};
 MainMenu.prototype = {
 	preload: function() {
 		console.log('MainMenu: preload');
+		// preload in background music
+		game.load.audio('backgroud', 'assets/audio/background.ogg');
 	},
 	create: function() {
 		console.log('MainMenu: create');
@@ -23,6 +25,8 @@ var GamePlay = function(game) {};
 GamePlay.prototype = {
 	preload: function() {
 		console.log('GamePlay: preload');
+		//preload SFX for collecting rune piece
+		game.load.audio('dingSFX', 'dingSFX.ogg');
 	},
 	create: function() {
 		console.log('GamePlay: create');
