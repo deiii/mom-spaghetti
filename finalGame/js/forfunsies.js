@@ -1,8 +1,16 @@
 // define game
 var game = new Phaser.Game(800, 600, Phaser.AUTO); 
+var content = [
+	"test content",
+	"more test content"
+];
+var line = [];
+var wordIndex = 0;
+var lineIndex = 0;
+var wordDelay = 120;
+var lineDelay = 400;
 
-
-	// ----------------------------------------------------------------------------------------------------------------------------------------Main Menu
+// ----------------------------------------------------------------------------------------------------------------------------------------Main Menu
 // define MainMenu state and methods
 var MainMenu = function(game) {};
 MainMenu.prototype = {
@@ -11,6 +19,15 @@ MainMenu.prototype = {
 	create: function() {
 		console.log('Main Menu');
 		game.stage.backgroundColor = "#ffffff";
+		// --------------------------------------------------
+		// Introduction storyline before game uptions appear
+		// Code altered from Phaser example
+		// --------------------------------------------------
+		text = game.add.text(32, 32, '', {
+						font: '15px Ariel',
+						fill: '#000000'});
+		nextLine();
+		
 		// --------------------------------------------------
 		// Instructions for state switching
 		// --------------------------------------------------
@@ -31,6 +48,48 @@ MainMenu.prototype = {
 		}
 	}
 }
+// function to go through each line of content
+// called in create() of MainMenu()
+function nextLine() {
+	// if at end of lines in content
+	if(lineIndex === content.length) {
+		return;
+	}
+	
+	// one word per array element
+	line = content[lineIndex].split(' ');
+	
+	// reset wordIndex so starts back at beginning
+	wordIndex = 0;
+	
+	// call to 'nextWord' funtion
+	// defined below
+	game.time.events.repeat(wordDelay, line.length, nextWord, this);
+	
+	// go to the next line
+	lineIndex++;
+}
+
+// function to go through each word of content
+// called in nextLine()
+function nextWord() {
+	// add in next word and a space to seperate
+	text.text = text.text.concat(line[wordIndex] + " ");
+
+	// go to next word
+	wordIndex++;
+	
+	// if at end of line
+	if (wordIndex == line.length) {
+		// go to next line
+		text.text = text.text.concat("\n");
+		
+		// delay and go to next line
+		game.time.events.add(lineDelay, nextLine, this);
+	}
+}
+
+
  	// ----------------------------------------------------------------------------------------------------------------------------------------Mini Game 1
 // define GamePlay state and methods
 var miniGameA = function(game) {};
