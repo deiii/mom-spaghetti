@@ -11,7 +11,9 @@ MainMenu.prototype = {
 	create: function() {
 		console.log('Main Menu');
 		game.stage.backgroundColor = "#ffffff";
+		// --------------------------------------------------
 		// Instructions for state switching
+		// --------------------------------------------------
 		instruction1 = game.add.text(50,50,'Press 1 for mini game 1\nPress 2 for mini game 2\nPress 3 for mini game 3.', { font: '32px Serif'});
 	},
 	update: function() {
@@ -38,7 +40,9 @@ miniGameA.prototype = {
 	create: function() {
 		console.log('mini game');
 		game.stage.backgroundColor = "#80C67F";
+		// --------------------------------------------------
 		// Instructions for state switching
+		// --------------------------------------------------
 		instruction2 = game.add.text(300,50,'Press SPACE to go to main menu\nPress ESC for game over', { font: '32px Serif'});
 	},
 	update: function() {
@@ -62,8 +66,9 @@ miniGameB.prototype = {
 	create: function() {
 		console.log('mini game');
 		game.stage.backgroundColor = "C63636";
-
+		// --------------------------------------------------
 		// Instructions for state switching
+		// --------------------------------------------------
 		instruction3 = game.add.text(300,50,'Press SPACE to go to main menu\nPress ESC for game over', { font: '32px Serif'});
 	},
 	update: function() {
@@ -87,8 +92,9 @@ miniGameC.prototype = {
 	create: function() {
 		console.log('mini game');
 		game.stage.backgroundColor = "#C6C27F";
-
+		// --------------------------------------------------
 		// Instructions for state switching
+		// --------------------------------------------------
 		instruction4 = game.add.text(300,50,'Press SPACE to go to main menu\nPress ESC for game over', { font: '32px Serif'});
 	},
 	update: function() {
@@ -113,12 +119,15 @@ GameOver.prototype = {
 	create: function() {
 		console.log('Game Over');
 		game.stage.backgroundColor = "#bb11ee";
-
+		// --------------------------------------------------
 		// Instructions for state switching
+		// --------------------------------------------------
 		instruction5 = game.add.text(300,50,'Press SPACE to go to main menu', { font: '32px Serif'});
 	},
 	update: function() {
+		// --------------------------------------------------
 		// Press SPACE for main menu
+		// --------------------------------------------------
 		if(game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
 			game.state.start('MainMenu');
 		}
