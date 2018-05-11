@@ -1,8 +1,18 @@
 // define game
 var game = new Phaser.Game(800, 600, Phaser.AUTO); 
 var content = [
-	"test content",
-	"more test content"
+	"It is the year 2020",
+	"The world is in a desolate state",
+	"Ronald Rump has become a dictator of the United States",
+	"and Kim Jong-boom is still the dictator of North Korea",
+	"Both are too childish to deal with their probelms in an appropriate manner",
+	"so they wage nuclear war on each other",
+	"getting other countries involved",
+	"Not only that",
+	"but New York City. Shanhai, the Netherlands, Los Angeles and other costal regions",
+	"are slowly being consumed by water and nukes",
+	"Now is your chance to do something about it",
+	"Play these Mini Games"
 ];
 var line = [];
 var wordIndex = 0;
@@ -24,14 +34,14 @@ MainMenu.prototype = {
 		// Code altered from Phaser example
 		// --------------------------------------------------
 		text = game.add.text(32, 32, '', {
-						font: '15px Ariel',
-						fill: '#000000'});
+			font: '20px Courier',
+			fill: '#000000'});
 		nextLine();
 		
 		// --------------------------------------------------
 		// Instructions for state switching
 		// --------------------------------------------------
-		instruction1 = game.add.text(50,50,'Press 1 for mini game 1\nPress 2 for mini game 2\nPress 3 for mini game 3.', { font: '32px Serif'});
+		instruction1 = game.add.text(750,550,'Press 1 for mini game 1\nPress 2 for mini game 2\nPress 3 for mini game 3.', { font: '32px Serif'});
 	},
 	update: function() {
 		// --------------------------------------------------
