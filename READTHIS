@@ -1,5 +1,0 @@
-Hey guys, 
-The raycasting is cool but we're having a lot of difficulties getting the shadow detection to work with a player sprite :(
-We may have to scrap the idea of raycasting, or only use it aesthetically, and I have some ideas we can discuss:
-1. Have player avoid shadows, instead
-2. Rely on night/day cycles as the main change in mechanics, as opposed to shadows. (I can explain in more detail later).
