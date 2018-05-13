@@ -1,8 +1,9 @@
 // define game
 var game = new Phaser.Game(800, 600, Phaser.AUTO); 
 var content = [
-	"         Hmmmmmm",
-	"   I wonder what's on TV",
+	"Hmmmmmm",
+	"I wonder what's",
+	"on TV",
 	"",
 	"Click [1] to start mini game" //temp text, will be more creative later
 ];
@@ -17,17 +18,17 @@ var lineDelay = 400;
 var MainMenu = function(game) {};
 MainMenu.prototype = {
 	preload: function() {
-		//game.load.image('intro', 'assets/img/intro.png');
+		game.load.image('intro', 'assets/img/intro.png');
 	},
 	create: function() {
 		console.log('Main Menu');
-		game.stage.backgroundColor = "#4488AA";
-		//game.add.sprite(0, 0, 'intro.png');
+		//game.stage.backgroundColor = "#4488AA";
+		game.add.sprite(0, 0, 'intro');
 		// --------------------------------------------------
 		// Introduction storyline before game options appear
 		// Code altered from Phaser example
 		// --------------------------------------------------
-		text = game.add.text(150, 250, '', {
+		text = game.add.text(30, 30, '', {
 			font: '30px Courier',
 			fill: '#000000'});
 		nextLine();
