@@ -229,7 +229,9 @@ miniGameA.prototype = {
 			thots.onChildInputOut.add(this.onOut, this);
 
 			trump = game.add.sprite(0, 0,'trump');
-			instruction2 = game.add.text(20,500,'Press SPACE to go to main menu\nPress ESC for game over', { font: '32px Serif', fill: '#D5D5D5'});
+			instruction2 = game.add.text(20,500,
+				"Click and drag words into the President's mouth.\nPress SPACE to go to main menu\nPress ESC for game over",
+				 { font: '20px Serif', fill: '#D5D5D5'});
 	},
 
 	onOver: function(word) {
