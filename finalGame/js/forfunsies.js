@@ -1,8 +1,8 @@
 // define game
 var game = new Phaser.Game(800, 600, Phaser.AUTO); 
 var content = [
-	"Hmmmmmm",
-	"I wonder what's on TV",
+	"         Hmmmmmm",
+	"   I wonder what's on TV",
 	"",
 	"Click [1] to start mini game" //temp text, will be more creative later
 ];
@@ -17,24 +17,25 @@ var lineDelay = 400;
 var MainMenu = function(game) {};
 MainMenu.prototype = {
 	preload: function() {
-		game.load.image('intro', 'assets/img/intro.png');
+		//game.load.image('intro', 'assets/img/intro.png');
 	},
 	create: function() {
 		console.log('Main Menu');
-		game.add.image(0, 0, 'intro.png');
+		game.stage.backgroundColor = "#4488AA";
+		//game.add.sprite(0, 0, 'intro.png');
 		// --------------------------------------------------
 		// Introduction storyline before game options appear
 		// Code altered from Phaser example
 		// --------------------------------------------------
-		text = game.add.text(32, 32, '', {
-			font: '20px Courier',
+		text = game.add.text(150, 250, '', {
+			font: '30px Courier',
 			fill: '#000000'});
 		nextLine();
 		
 		// --------------------------------------------------
 		// Instructions for state switching
 		// --------------------------------------------------
-		instruction1 = game.add.text(250,250,'Press 1 for mini game 1\nPress 2 for mini game 2\nPress 3 for mini game 3.', { font: '32px Serif'});
+		//instruction1 = game.add.text(250,250,'Press 1 for mini game 1\nPress 2 for mini game 2\nPress 3 for mini game 3.', { font: '32px Serif'});
 	},
 	update: function() {
 		// --------------------------------------------------
@@ -363,4 +364,3 @@ game.state.add('miniGameB', miniGameB);
 game.state.add('miniGameC', miniGameC);
 game.state.add('GameOver', GameOver);
 game.state.start('MainMenu');
-
