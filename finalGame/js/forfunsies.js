@@ -13,30 +13,164 @@ var lineIndex = 0;
 var wordDelay = 120;
 var lineDelay = 400;
 
-// ----------------------------------------------------------------------------------------------------------------------------------------Main Menu
-// define MainMenu state and methods
+//----------------------------------------------------------------------------------------
+// functions for state switching 
+//----------------------------------------------------------------------------------------
+function playGame() {
+	// change state to gameStart
+	game.state.start('gameStart');
+}
+function gameSettings() {
+	// change state to Settings page
+	game.state.start('settings');
+}
+function triggerWarnings() {
+	//change state to trigger warnings page
+	game.state.start('triggers');
+}
+function creditsList() {
+	//change to credits list page
+	game.state.start('credits');
+}
+
+//----------------------------------------------------------------------------------------
+// Main Menu with buttons state
+//----------------------------------------------------------------------------------------
+
 var MainMenu = function(game) {};
 MainMenu.prototype = {
 	preload: function() {
+	    // load in button sprites
+		game.load.image('play', 'assets/img/buttonPlay.png');
+		game.load.image('settings', 'assets/img/buttonSettings.png');
+		game.load.image('triggers', 'assets/img/buttonTriggers.png');
+		game.load.image('credits', 'assets/img/buttonCredits.png');
+	},
+	create: function() {
+	    // Main Menu page with four buttons
+		game.stage.backgroundColor = "#D1D1E0";
+		game.add.text(325, 75, 'Main Menu', { fill: '#000000' });
+		
+		// if player clicks on "play", go to play state
+		var play = game.add.sprite(200, 200, 'play');
+		play.inputEnabled = true;
+		play.events.onInputDown.add(playGame, this);
+		
+		// if player clicks on "settings", go to setting state
+		var settings = game.add.sprite(200, 300, 'settings');
+		settings.inputEnabled = true;
+		settings.events.onInputDown.add(gameSettings, this);
+		
+		// if player clicks on "triggers", go to trigger warnings
+		var triggers = game.add.sprite(200, 400, 'triggers');
+		triggers.inputEnabled = true;
+		triggers.events.onInputDown.add(triggerWarnings, this);
+		
+		// if player clicks  on "credits", go to credits state
+		var credits = game.add.sprite(200, 500, 'credits');
+		credits.inputEnabled = true;
+		credits.events.onInputDown.add(creditsList, this);
+	},
+	update: function() {
+	}
+}
+
+//----------------------------------------------------------------------------------------
+// settings state
+//----------------------------------------------------------------------------------------
+var settings = function(game) {};
+settings.prototype = {
+	preload: function() {
+	},
+	create: function() {
+		console.log('settings');
+		game.add.text(100, 500, "Press 'Q' to return to Main Menu", {
+			font: '30px Courier',
+			fill: '#000000'});
+	},
+	update: function() {
+	// if player presses Q, go back to MainMenu
+		if(game.input.keyboard.isDown(Phaser.Keyboard.Q)) {
+			game.state.start('MainMenu');
+		}
+	}
+}
+
+//----------------------------------------------------------------------------------------
+// triggers state
+//----------------------------------------------------------------------------------------
+var triggers = function(game) {};
+triggers.prototype = {
+	preload: function() {
+	},
+	create: function() {
+	console.log('triggers');
+		// text about triggers
+	    var trig = "This game contains some political\ncommmentary please be advised.\n\nGameplay may also cause motion\nsickness and anxiety...\n\nPlay at your own discretion.";
+	
+		game.add.text(100, 100, trig, {
+			font: '30px Courier',
+			fill: '#000000'});
+			
+		game.add.text(100, 500, "Press 'Q' to return to Main Menu", {
+			font: '30px Courier',
+			fill: '#000000'});
+	},
+	update: function() {
+	// if player presses Q, go back to MainMenu
+		if(game.input.keyboard.isDown(Phaser.Keyboard.Q)) {
+			game.state.start('MainMenu');
+		}
+	}
+}
+
+//----------------------------------------------------------------------------------------
+// credits state
+//----------------------------------------------------------------------------------------
+var credits = function(game) {};
+credits.prototype = {
+	preload: function() {
+	},
+	create: function() {
+		console.log('credits');
+		// text for credits
+		var creds = "Mom's Spaghetti\n\n   Yash Dua\n     Ed Li\n Alex Arancibia\n   Dhani Hua";
+		
+		game.add.text(225, 100, creds, {
+			font: '30px Courier',
+			fill: '#000000'});
+			
+		game.add.text(125, 500, "Press 'Q' to return to Main Menu", {
+			font: '30px Courier',
+			fill: '#000000'});
+	},
+	update: function() {
+	// if player presses Q, go back to MainMenu
+		if(game.input.keyboard.isDown(Phaser.Keyboard.Q)) {
+			game.state.start('MainMenu');
+		}
+	}
+}
+
+//----------------------------------------------------------------------------------------
+// define gameStart state and methods
+//----------------------------------------------------------------------------------------
+var gameStart = function(game) {};
+gameStart.prototype = {
+	preload: function() {
+	    // load in background image
 		game.load.image('intro', 'assets/img/intro.png');
 	},
 	create: function() {
-		console.log('Main Menu');
-		//game.stage.backgroundColor = "#4488AA";
+		console.log('gameStart');
 		game.add.sprite(0, 0, 'intro');
 		// --------------------------------------------------
-		// Introduction storyline before game options appear
 		// Code altered from Phaser example
 		// --------------------------------------------------
 		text = game.add.text(30, 30, '', {
 			font: '30px Courier',
 			fill: '#000000'});
 		nextLine();
-		
-		// --------------------------------------------------
-		// Instructions for state switching
-		// --------------------------------------------------
-		//instruction1 = game.add.text(250,250,'Press 1 for mini game 1\nPress 2 for mini game 2\nPress 3 for mini game 3.', { font: '32px Serif'});
 	},
 	update: function() {
 		// --------------------------------------------------
@@ -53,8 +187,11 @@ MainMenu.prototype = {
 		}
 	}
 }
+
+//----------------------------------------------------------------------------------------
 // function to go through each line of content
 // called in create() of MainMenu()
+//----------------------------------------------------------------------------------------
 function nextLine() {
 	// if at end of lines in content
 	if(lineIndex === content.length) {
@@ -75,8 +212,10 @@ function nextLine() {
 	lineIndex++;
 }
 
+//----------------------------------------------------------------------------------------
 // function to go through each word of content
 // called in nextLine()
+//----------------------------------------------------------------------------------------
 function nextWord() {
 	// add in next word and a space to seperate
 	text.text = text.text.concat(line[wordIndex] + " ");
@@ -93,7 +232,6 @@ function nextWord() {
 		game.time.events.add(lineDelay, nextLine, this);
 	}
 }
-
 
  	// ----------------------------------------------------------------------------------------------------------------------------------------Mini Game 1
 var thots;
@@ -334,8 +472,10 @@ miniGameC.prototype = {
 		}
 	}
 }
-	// ----------------------------------------------------------------------------------------------------------------------------------------Game Over
+//----------------------------------------------------------------------------------------
 // define GameOver state and methods
+//----------------------------------------------------------------------------------------
+
 var GameOver = function(game) {};
 GameOver.prototype = {
 	preload: function() {
@@ -357,9 +497,14 @@ GameOver.prototype = {
 		}
 	}
 }
-
+//----------------------------------------------------------------------------------------
 // add states to StateManager and start MainMenu
+//----------------------------------------------------------------------------------------
 game.state.add('MainMenu', MainMenu);
+game.state.add('gameStart', gameStart);
+game.state.add('settings', settings);
+game.state.add('triggers', triggers);
+game.state.add('credits', credits);
 game.state.add('miniGameA', miniGameA);
 game.state.add('miniGameB', miniGameB);
 game.state.add('miniGameC', miniGameC);
