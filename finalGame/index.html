@@ -1,0 +1,48 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+	<title>Mom's Spaghetti</title>
+	<script type="text/javascript" src="../framework/phaser.min.js"></script>
+	<!-- ><script type="text/javascript" src="js/index.js"></script> -->
+	<script type="text/javascript" src="js/loadingMenu.js"></script>
+	<script type="text/javascript" src="js/settings.js"></script>
+	<script type="text/javascript" src="js/triggers.js"></script>
+	<script type="text/javascript" src="js/credits.js"></script>
+	<script type="text/javascript" src="js/phase1.js"></script>
+	<script type="text/javascript" src="js/MiniGameA.js"></script>
+	<script type="text/javascript" src="js/MiniGameB.js"></script>
+	<script type="text/javascript" src="js/MiniGameC.js"></script>
+	<script type="text/javascript" src="js/MiniGameD.js"></script>
+	<script type="text/javascript" src="js/GameOver.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	
+	<script type="text/javascript">
+		(function() {
+
+				//Create a new game that fills the screen
+				game = new Phaser.Game(900, 630, Phaser.AUTO);
+				
+				//Add all states
+				game.state.add("loadingMenu", loadingMenu);
+				game.state.add("settings", settings);
+				game.state.add("triggers", triggers);
+				game.state.add("credits", credits);
+				game.state.add("phase1", phase1);
+				game.state.add("MiniGameA", MiniGameA);
+				game.state.add("MiniGameB", MiniGameB);
+				game.state.add("MiniGameC", MiniGameC);
+				game.state.add("MiniGameD", MiniGameD);
+				game.state.add("GameOver", GameOver);
+
+				//Start the first state
+				game.state.start("loadingMenu");
+
+		})();
+    </script>
+</head>
+<body>
+	<h1></h1>
+</body>
+</html>
