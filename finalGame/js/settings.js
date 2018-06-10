@@ -10,6 +10,15 @@ var settings = function(game) {};
 			music.pause();
 			game.stage.backgroundColor = '#ffffff';
 			console.log('settings');
+			
+			game.add.text(100, 200, "Woah! Cool! A new font!", {font: 'Orbitron',
+				fontSize: 32,
+				fill: '#000000'});
+				
+			game.add.text(100, 400, "That's all...", {font: 'Orbitron',
+				fontSize: 32,
+				fill: '#000000'});
+			
 			var back = game.add.sprite(100, 500, 'back');
 			back.inputEnabled = true;
 			back.events.onInputDown.add(this.backMenu, this);
