@@ -1,0 +1,197 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+	<title>B I G M O O D</title>
+	<script type="text/javascript" src="../framework/phaser.min.js"></script>
+	<script type="text/javascript" src="js/loadingMenu.js"></script>
+	<script type="text/javascript" src="js/settings.js"></script>
+	<script type="text/javascript" src="js/triggers.js"></script>
+	<script type="text/javascript" src="js/credits.js"></script>
+	
+	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+
+	<script type="text/javascript" src="js/phase/phase1.js"></script>
+	<script type="text/javascript" src="js/phase/phase2.js"></script>
+	<script type="text/javascript" src="js/phase/phase3.js"></script>
+	<script type="text/javascript" src="js/phase/phase4.js"></script>
+	<script type="text/javascript" src="js/phase/phase5.js"></script>
+	<script type="text/javascript" src="js/phase/instructions.js"></script>
+	<script type="text/javascript" src="js/phase/end.js"></script>
+
+	<script type="text/javascript" src="js/phone/phone1.js"></script>
+	<script type="text/javascript" src="js/phone/phone2.js"></script>
+	<script type="text/javascript" src="js/phone/phone3.js"></script>
+	<script type="text/javascript" src="js/phone/phone4.js"></script>
+
+
+	<script type="text/javascript" src="js/trump/trumpintro1.js"></script>
+	<script type="text/javascript" src="js/trump/trumpintro2.js"></script>
+	<script type="text/javascript" src="js/trump/trumpintro3.js"></script>
+	<script type="text/javascript" src="js/trump/trumpintro4.js"></script>
+
+	<script type="text/javascript" src="js/trump/trump1.js"></script>
+	<script type="text/javascript" src="js/trump/trump2.js"></script>
+	<script type="text/javascript" src="js/trump/trump3.js"></script>
+	<script type="text/javascript" src="js/trump/trump4.js"></script>
+
+	<script type="text/javascript" src="js/breakout/bointro1.js"></script>
+	<script type="text/javascript" src="js/breakout/bointro2.js"></script>
+	<script type="text/javascript" src="js/breakout/bointro3.js"></script>
+	<script type="text/javascript" src="js/breakout/bointro4.js"></script>
+	<script type="text/javascript" src="js/breakout/bogameover1.js"></script>
+	<script type="text/javascript" src="js/breakout/bogameover2.js"></script>
+	<script type="text/javascript" src="js/breakout/bogameover3.js"></script>
+	<script type="text/javascript" src="js/breakout/bogameover4.js"></script>
+
+
+	<script type="text/javascript" src="js/breakout/breakout1.js"></script>
+	<script type="text/javascript" src="js/breakout/breakout2.js"></script>
+	<script type="text/javascript" src="js/breakout/breakout3.js"></script>
+	<script type="text/javascript" src="js/breakout/breakout4.js"></script>
+
+	<script type="text/javascript" src="js/shooter/shootintro1.js"></script>
+	<script type="text/javascript" src="js/shooter/shootintro2.js"></script>
+	<script type="text/javascript" src="js/shooter/shootintro3.js"></script>
+	<script type="text/javascript" src="js/shooter/shootintro4.js"></script>
+
+	<script type="text/javascript" src="js/shooter/shooter1.js"></script>
+	<script type="text/javascript" src="js/shooter/shooter2.js"></script>
+	<script type="text/javascript" src="js/shooter/shooter3.js"></script>
+	<script type="text/javascript" src="js/shooter/shooter4.js"></script>
+
+	<script type="text/javascript" src="js/shooter/shootover1.js"></script>
+	<script type="text/javascript" src="js/shooter/shootover2.js"></script>
+	<script type="text/javascript" src="js/shooter/shootover3.js"></script>
+	<script type="text/javascript" src="js/shooter/shootover4.js"></script>
+	
+	<script type="text/javascript" src="js/dating/datingProfiles.js"></script>
+	<script type="text/javascript" src="js/dating/datingProfiles2.js"></script>
+	<script type="text/javascript" src="js/dating/datingProfiles3.js"></script>
+	<script type="text/javascript" src="js/dating/datingProfiles4.js"></script>
+
+	<script type="text/javascript" src="js/dating/alexchat.js"></script>
+	<script type="text/javascript" src="js/dating/alexchat2.js"></script>
+	<script type="text/javascript" src="js/dating/alexchat3.js"></script>
+	<script type="text/javascript" src="js/dating/alexchat4.js"></script>
+	
+	<script type="text/javascript" src="js/dating/dhanichat.js"></script>
+	<script type="text/javascript" src="js/dating/dhanichat2.js"></script>
+	<script type="text/javascript" src="js/dating/dhanichat3.js"></script>
+	<script type="text/javascript" src="js/dating/dhanichat4.js"></script>
+
+	<script type="text/javascript" src="js/dating/edchat.js"></script>
+	<script type="text/javascript" src="js/dating/edchat2.js"></script>
+	<script type="text/javascript" src="js/dating/edchat3.js"></script>
+	<script type="text/javascript" src="js/dating/edchat4.js"></script>
+
+	<script type="text/javascript" src="js/dating/yashchat.js"></script>
+	<script type="text/javascript" src="js/dating/yashchat2.js"></script>
+	<script type="text/javascript" src="js/dating/yashchat3.js"></script>
+	<script type="text/javascript" src="js/dating/yashchat4.js"></script>
+
+
+	
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	
+	<script type="text/javascript">
+		(function() {
+
+				//Create a new game that fills the screen
+				game = new Phaser.Game(900, 630, Phaser.AUTO);
+				
+				//Add all states
+				game.state.add("loadingMenu", loadingMenu);
+				game.state.add("settings", settings);
+				game.state.add("triggers", triggers);
+				game.state.add("credits", credits);
+				game.state.add("instructions", instructions);
+				game.state.add("phase1", phase1);
+				game.state.add("phase2", phase2);
+				game.state.add("phase3", phase3);
+				game.state.add("phase4", phase4);
+				game.state.add("phase5", phase5);
+				game.state.add("end", end);
+
+				game.state.add("phone1", phone1);
+				game.state.add("phone2", phone2);
+				game.state.add("phone3", phone3);
+				game.state.add("phone4", phone4);
+
+				game.state.add("trumpintro1", trumpintro1);
+				game.state.add("trumpintro2", trumpintro2);
+				game.state.add("trumpintro3", trumpintro3);
+				game.state.add("trumpintro4", trumpintro4);
+
+				game.state.add("trump1", trump1);
+				game.state.add("trump2", trump2);
+				game.state.add("trump3", trump3);
+				game.state.add("trump4", trump4);
+
+
+				game.state.add("bointro1", bointro1);
+				game.state.add("bointro2", bointro2);
+				game.state.add("bointro3", bointro3);
+				game.state.add("bointro4", bointro4);
+
+				game.state.add("breakout1", breakout1);
+				game.state.add("breakout2", breakout2);
+				game.state.add("breakout3", breakout3);
+				game.state.add("breakout4", breakout4);
+
+				game.state.add("bogameover1", bogameover1);
+				game.state.add("bogameover2", bogameover2);
+				game.state.add("bogameover3", bogameover3);
+				game.state.add("bogameover4", bogameover4);
+
+				game.state.add('shootintro1', shootintro1);
+				game.state.add('shootintro2', shootintro2);
+				game.state.add('shootintro3', shootintro3);
+				game.state.add('shootintro4', shootintro4);
+				
+				game.state.add('shooter1', shooter1);
+				game.state.add('shooter2', shooter2);
+				game.state.add('shooter3', shooter3);
+				game.state.add('shooter4', shooter4);
+
+				game.state.add('shootover1', shootover1);
+				game.state.add('shootover2', shootover2);
+				game.state.add('shootover3', shootover3);
+				game.state.add('shootover4', shootover4);
+				
+
+				game.state.add("dateProfiles", dateProfiles);
+				game.state.add("dateProfiles2", dateProfiles2);
+				game.state.add("dateProfiles3", dateProfiles3);
+				game.state.add("dateProfiles4", dateProfiles4);
+				
+				game.state.add("alexchat", alexchat);
+				game.state.add("alexchat2", alexchat2);
+				game.state.add("alexchat3", alexchat3);
+				game.state.add("alexchat4", alexchat4);
+
+				game.state.add("dhanichat", dhanichat);
+				game.state.add("dhanichat2", dhanichat2);
+				game.state.add("dhanichat3", dhanichat3);
+				game.state.add("dhanichat4", dhanichat4);
+
+				game.state.add("edchat", edchat);
+				game.state.add("edchat2", edchat2);
+				game.state.add("edchat3", edchat3);
+				game.state.add("edchat4", edchat4);
+
+				game.state.add("yashchat", yashchat);
+				game.state.add("yashchat2", yashchat2);
+				game.state.add("yashchat3", yashchat3);
+				game.state.add("yashchat4", yashchat4);
+
+				//Start the first state
+				game.state.start("loadingMenu");
+
+		})();
+    </script>
+</head>
+<body>
+	<h1></h1>
+</body>
+</html> 
